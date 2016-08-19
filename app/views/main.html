@@ -1,0 +1,57 @@
+<div class="about">
+	<h1>Discover the power of creating your own unique live events and save your time</h1>
+	<h4>... get together to share and learn something new  ...</h4>
+</div>
+<div class="flexbox-container">
+	<div class="event-box" ng-repeat="event in eventsCtrl.eventList">
+	<!-- <div class="event-tile" ng-repeat="event in events"> -->
+		<div class="event-content">
+			<div class="event-title">
+				<div class="figure fontawesome-check"></div>
+			 	<div class="event-header">
+					<h3>{{event.title}}</h3>
+				</div>
+			</div>
+			<div class="event-body">
+				<div class="event-host"><strong>Event Host: </strong>{{event.host}}</div>
+				<div class="event-type"><strong>Event Type: </strong>{{event.type}}</div>
+				<div class="event-time">
+					<div class="figure entypo-clock"></div>
+					<div class="event-start">
+						<time>
+							<h4>{{event.start | date: "fullDate"}}</h4>
+							<p>{{event.start | date:"h:mm a"}} - {{event.end | date:"h:mm a"}}</p>
+						</time>
+					</div>
+				</div>
+				<div class="event-address">
+					<div>
+					<div class="figure entypo-location" style="font-size: 18px;"></div> 
+					<div class="address-header">{{event.location}}</div>
+					</div>
+					<a style="padding-left: 32px;" ng-href="http://maps.google.com/" target="_blank">Go to Google Maps</a>
+				</div>
+				<div class="event-guests">
+					<div class="entypo-users guest-header"><strong>Guests: </strong></div>
+					<div class="guest-list">{{event.guest}}</div>
+				</div>
+				<div class="event-info" style="padding-top: 15px;" ng-show="event.message || event.contact">
+					<div class="figure fontawesome-comments-alt"></div>
+					<div class="event-messg">{{event.message}}
+					</div>
+					<div class="zocial-email info-contact">Contact email: {{event.contact}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="about landing">
+	<div>
+		<h1>Set up your next event</h1>
+	</div>
+	<div class="group">
+		<div class="cell">
+		<a ui-sref="create" class="dtn btn-info gs" role="button">Get started</a>
+		</div>
+	</div>
+</div>

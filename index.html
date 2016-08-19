@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="eventApp">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width = device-width, initial-scale = 1">
+	<title>Event Planner App</title>
+	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://weloveiconfonts.com/api/?family=entypo|fontawesome|zocial" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Alegreya:400,700italic' rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="app/styles/main.css">
+</head>
+<body ng-controller="NavController">
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+  		<div class="container-fluid">
+    	<!-- Brand and toggle-menu get grouped for better mobile display -->
+    		<div class="navbar-header">
+      			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        			<span class="sr-only">Toggle navigation</span>
+        			<span>Menu</span>
+      			</button>
+      			<a class="navbar-brand" href="#"><img src="app/styles/img/logopinkk.png" alt="Event Planner"></a>
+    		</div>
+
+    		<!-- Content for toggling menu-->
+    		<div class="collapse navbar-collapse" id="navbar">
+      			<ul class="nav navbar-nav">
+        			<li><a ui-sref="main" ng-click="toggleNb()">Events</a></li>
+        			<li><a ui-sref="create"  ng-click="toggleNb()">Create Event</a></li>
+        			<li class="dropdown">
+          				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Share <span class="caret"></span></a>
+          				<ul id="share-dp" class="dropdown-menu" role="menu">
+            				<li>
+            				<div class="row">
+            					<div class="col-md-12">Tell your friends via
+									<div class="social-buttons">
+										<a href="http://facebook.com" class="btn btn-fb" ng-click="toggleNb()"><i class="zocial-facebook"></i> Facebook</a>
+										<a href="http://twitter.com" class="btn btn-tw"  ng-click="toggleNb()"><i class="zocial-twitter"></i> Twitter</a>
+									</div>
+								</div>
+							</div>
+            				</li>
+          				</ul>
+        			</li>
+        			<li><a ui-sref="signup"  ng-click="toggleNb()">Sign Up</a></li>
+      			</ul>
+      			<ul class="nav navbar-nav navbar-right">
+        			<li><p class="navbar-text">Already have an account?</p></li>
+					<li><a ui-sref="loginn"  ng-click="toggleNb()">Log In</a></li>
+      			</ul>
+    		</div><!-- /.navbar-collapse -->
+  		</div><!-- /.container-fluid -->
+	</nav>
+	<div ui-view class="container">	
+	</div>
+
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- AngularJS -->
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="node_modules/angular-messages/angular-messages.min.js"></script>
+<!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+
+<script src="app/scripts/app.js"></script>
+
+</body>
+</html>
