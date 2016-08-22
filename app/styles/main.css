@@ -27,6 +27,7 @@ body {
     background-color: #026873;
     color: white;
 }
+
 .navbar .navbar-nav>li>a {
     color: white;
 }
@@ -47,6 +48,7 @@ body {
 .navbar-toggle:hover {
     color: black;
 }
+
 .nav>li>p {
     padding-left: 10px;
 }
@@ -80,6 +82,7 @@ body {
 #share-dp .form-group {
     margin-bottom: 10px;
 }
+
 .btn-fb {
     color: #fff;
     background-color: #3b5998;
@@ -108,14 +111,17 @@ body {
     left: 50%;
     position: absolute;
 }
+
 .navbar-brand>img {
     /*height: 100%; */
     padding: 15px;
     width: auto;
 }
+
 .content {
     padding-bottom: 80px;
 }
+
 .ev-start {
     background: #dff0d8;
     padding: 5px;
@@ -156,6 +162,7 @@ blockquote {
     margin: 0 0 0.8em 0;
     display: block;
 }
+
 .valid:after {
   opacity: 0;
 
@@ -165,10 +172,12 @@ blockquote {
   width: 20px;
   height: 20px;
 }
+
 .glyphicon-ok {
     color: #477947;
     padding-right: 10px;
 }
+
 .valid.complete {
   color: #477947;
 }
@@ -183,6 +192,7 @@ blockquote {
     vertical-align: top;
     padding-left: 12px;
 }
+
 .event-header, .address-header {
     display: table-cell;
     vertical-align: top;
@@ -222,7 +232,6 @@ h3 {
     padding-bottom: 10px;
     /* flex-direction: column; */
     min-width: 33%;
-    /*max-width: 33%; */
 }
 
 .event-content {
@@ -241,6 +250,7 @@ h3 {
 .event-body {
     padding: 15px;
 }
+
 .event-title {
     padding: 15px 15px 0 15px;
 }
@@ -264,6 +274,7 @@ h3 {
 .addinfo {
     display: flex;
 }
+
 .addinfo i.open{
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
@@ -276,6 +287,7 @@ h3 {
 .event-guests {
     border-bottom: ridge;
 }
+
 .err-msg {
     color: #a94442;
 }
@@ -283,6 +295,7 @@ h3 {
 .guest-list {
     text-align: center;
 }
+
 strong {
     padding-right: 1em;
 }
@@ -381,22 +394,18 @@ strong {
     }
 }
 
-/* @media(max-width: 767px){
-    .navbar-collapse {
-        background-color: grey;
-
-    }
-} */
 @media(max-width: 600px){
     .navbar-toggle {
         margin-right: 5px;
     }
 }
+
 @media(min-width: 480px) {
     #signUp {
         width: 500px;
     }
 }
+
 @media(min-width:768px) and (max-width:980px){
     .navbar-brand>img {
         padding-top: 40px;
@@ -426,15 +435,9 @@ strong {
         padding-right: 10px;
     }
 }
+
 @media only screen and (max-width: 480px){
     h1 {
         font-size: 20px;
     }
 }
-
-/* @media screen and (max-width: 991px) {
-    .event-box {
-        max-width: 50%;
-        min-width: 50%;   
-    }
-} */
