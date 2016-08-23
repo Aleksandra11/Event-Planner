@@ -4,10 +4,10 @@
 </div>
 <div class="flexbox-container">
 	<div class="event-box" ng-repeat="event in eventsCtrl.eventList">
-	<!-- <div class="event-tile" ng-repeat="event in events"> -->
 		<div class="event-content">
 			<div class="event-title">
-				<div class="figure fontawesome-check"></div>
+				<div class="figure fa fa-check-square-o" aria-hidden="true">
+				</div>
 			 	<div class="event-header">
 					<h3>{{event.title}}</h3>
 				</div>
@@ -16,7 +16,8 @@
 				<div class="event-host"><strong>Event Host: </strong>{{event.host}}</div>
 				<div class="event-type"><strong>Event Type: </strong>{{event.type}}</div>
 				<div class="event-time">
-					<div class="figure entypo-clock"></div>
+					<!--<div class="figure entypo-clock"></div> -->
+					<div class="figure fa fa-clock-o" aria-hidden="true"></div>
 					<div class="event-start">
 						<time>
 							<h4>{{event.start | date: "fullDate"}}</h4>
@@ -26,20 +27,27 @@
 				</div>
 				<div class="event-address">
 					<div>
-					<div class="figure entypo-location" style="font-size: 18px;"></div> 
+					<div class="figure fa fa-map-marker" aria-hidden="true" style="font-size: 18px;"></div> 
 					<div class="address-header">{{event.location}}</div>
 					</div>
 					<a style="padding-left: 32px;" ng-href="http://maps.google.com/" target="_blank">Go to Google Maps</a>
 				</div>
 				<div class="event-guests">
-					<div class="entypo-users guest-header"><strong>Guests: </strong></div>
+					<div>
+						<div class="figure fa fa-user-plus  "aria-hidden="true"></div>
+						<div class="guest-header"><strong>Guests: </strong></div>
+					</div>
 					<div class="guest-list">{{event.guest}}</div>
 				</div>
 				<div class="event-info" style="padding-top: 15px;" ng-show="event.message || event.contact">
-					<div class="figure fontawesome-comments-alt"></div>
-					<div class="event-messg">{{event.message}}
+					<div>
+						<div class="figure fa fa-comments-o" aria-hidden="true"></div>
+						<div class="event-messg">{{event.message}}</div>
 					</div>
-					<div class="zocial-email info-contact">Contact email: {{event.contact}}</div>
+					<div style="padding-top: 10px;">
+						<div class="figure fa fa-envelope-o" aria-hidden="true"></div>
+						<div class="info-contact">Contact email: {{event.contact}}</div>
+					</div>
 				</div>
 			</div>
 		</div>

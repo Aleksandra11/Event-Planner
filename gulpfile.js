@@ -7,6 +7,7 @@ var	reload = browserSync.reload;
 //var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var mincss = require('gulp-cssmin');
 
 gulp.task('default', function() {
 	console.log('Hello, Gulp!');
@@ -27,7 +28,10 @@ gulp.task('html', function() {
 });
 
 gulp.task('style', function() {
-	gulp.src('app/styles/**/*.css')
+	gulp.src(['app/styles/**/*.css', '!app/styles/**/*.min.css'])
+	.pipe(rename({suffix: '.min'}))
+	.pipe(mincss())
+	.pipe(gulp.dest('app/styles'))
 	.pipe(reload({stream:true}));
 });
 

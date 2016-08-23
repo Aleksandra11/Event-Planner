@@ -5,10 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width = device-width, initial-scale = 1">
 	<title>Event Planner App</title>
-	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="http://weloveiconfonts.com/api/?family=entypo|fontawesome|zocial" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 	<link href='https://fonts.googleapis.com/css?family=Alegreya:400,700italic' rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="app/styles/main.css">
+	<link rel="stylesheet" href="app/styles/main.min.css">
 </head>
 <body ng-controller="NavController">
 
@@ -35,8 +35,8 @@
             				<div class="row">
             					<div class="col-md-12">Tell your friends via
 									<div class="social-buttons">
-										<a href="http://facebook.com" class="btn btn-fb" ng-click="toggleNb()"><i class="zocial-facebook"></i> Facebook</a>
-										<a href="http://twitter.com" class="btn btn-tw"  ng-click="toggleNb()"><i class="zocial-twitter"></i> Twitter</a>
+										<a href="http://facebook.com" class="btn btn-fb" ng-click="toggleNb()"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
+										<a href="http://twitter.com" class="btn btn-tw"  ng-click="toggleNb()"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
 									</div>
 								</div>
 							</div>
@@ -55,14 +55,12 @@
 	<div ui-view class="container">	
 	</div>
 
-<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!-- AngularJS -->
-<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="node_modules/angular-messages/angular-messages.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.5.8/angular-messages.min.js"></script>
 <!-- Firebase -->
 <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
 

@@ -185,15 +185,16 @@ blockquote {
 .figure {
     display: table-cell;
     vertical-align: top;
+
 }
 
-.event-start, .event-messg {
+.event-start, .event-messg, .info-contact {
     display: table-cell;
     vertical-align: top;
     padding-left: 12px;
 }
 
-.event-header, .address-header {
+.event-header, .address-header, .guest-header {
     display: table-cell;
     vertical-align: top;
     padding: 0 12px 5px 12px;
