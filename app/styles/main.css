@@ -407,12 +407,19 @@ strong {
     }
 }
 
-@media(min-width:768px) and (max-width:980px){
+@media(min-width:768px) and (max-width:1024px){
     .navbar-brand>img {
         padding-top: 40px;
     }
     .flexbox-container {
         padding-left: 40px;
+    }
+    .event-box {
+        padding-left: 3px;
+    }
+     .navbar-brand {
+        /*display: none; */
+       left: 50%;
     }
 }
 
