@@ -17,11 +17,12 @@ body {
 
 .collapse.in {
     background-color: rgba(255,255,255,0.27);
+    transition: all 0.2s ease-in-out 0s, visibility 0s linear 0.3s,  z-index 0s linear 0.01s;
 }
 
-#navbar {
-    transition: all 0.4s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
-}
+/*#navbar {
+    transition: all 0.2s ease-in-out 0s, visibility 0s linear 0.3s,  z-index 0s linear 0.01s;
+} */
 
 .navbar .navbar-nav>.active>a {
     background-color: #026873;
@@ -370,12 +371,12 @@ strong {
   font-size: 18px;
 }
 
-@media(max-width:768px){
+@media only screen and (max-width:768px){
     #login-dp{
         background-color: inherit;
         color: #fff;
     }
-    #login-dp .bottom{
+    #login-dp .bottom {
         background-color: inherit;
         border-top:0 none;
     }
@@ -395,7 +396,7 @@ strong {
     }
 }
 
-@media(max-width: 600px){
+@media(max-width: 600px) {
     .navbar-toggle {
         margin-right: 5px;
     }
