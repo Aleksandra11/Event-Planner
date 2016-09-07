@@ -13,19 +13,19 @@
 				</div>
 				<form id="loginform" name="loginForm" class="form-horizontal" role="form">
 					<div class="input-group" ng-class="{'has-error': loginForm.username.$touched && loginForm.username.$invalid, 'has-success': loginForm.username.$touched && loginForm.username.$valid}">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-						<input id="login-username" type="email" class="form-control" name="username" autofocus ng-model="loginCtrl.loginEmail" autocomplete="email" placeholder="your email" required minlength="6" ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/"/>
+						<label for="login-username" class="input-group-addon"><i class="glyphicon glyphicon-user"></i></label>
+						<input autofocus focus-element id="login-username" type="email" class="form-control" name="username"  ng-model="loginCtrl.loginEmail" autocomplete="email" placeholder="your email" aria-label='input email' required minlength="6" ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/"/>
 						
 					</div>
-					<div ng-messages="loginForm.username.$touched && loginForm.username.$error"> 
+					<div ng-messages="loginForm.username.$dirty && loginForm.username.$error"> 
                 		<div ng-message='required'> Please enter an email</div>
                 		<div ng-message='email'> The Email entered must be a valid email address</div>
                 		<div ng-message='minlength'> Please enter a valid email</div>
                 		<div ng-message="pattern">Must be a valid email</div>
             		</div>
 					<div style="margin-top: 25px" class="input-group" ng-class="{'has-error': loginForm.passwd.$touched && loginForm.passwd.$invalid, 'has-success': loginForm.passwd.$touched && loginForm.passwd.$valid }">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-						<input id="login-password" type="password" class="form-control" name="passwd" ng-model="loginCtrl.loginPassword" required ng-pattern="/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/" autocomplete="off" placeholder="password | min 8 characters"/>
+						<label for="login-password" class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></label>
+						<input id="login-password" type="password" class="form-control" aria-label='input password' name="passwd" ng-model="loginCtrl.loginPassword" required ng-pattern="/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/" autocomplete="off" placeholder="password | min 8 characters"/>
 					</div>
 					<div ng-messages="loginForm.passwd.$touched && loginForm.passwd.$error">
                 		<div ng-message='required'> Please enter a password</div>
@@ -41,8 +41,7 @@
 					</div>
 					<div class="form-group">
 						<div class="col-sm-12 controls">
-						<div style="border-top: 1px solid#888; padding-top: 15px; font-size: 85%">Don't have an account! <a href="#/signup"> Sign Up here</a>
-							
+						<div style="border-top: 1px solid#888; padding-top: 15px; font-size: 85%">Don't have an account! <a ui-sref="signup"> Sign Up here</a>
 						</div>
 						</div>
 					</div>

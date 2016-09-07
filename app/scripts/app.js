@@ -3,19 +3,19 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 	$urlRouterProvider.otherwise('/');
 	$stateProvider.state('main', {
 		url: '/',
-		templateUrl: 'app/views/main.html',
+		templateUrl: 'views/main.html',
 		controller: 'EventListController',
 		controllerAs: 'eventsCtrl',
 		resolve: {
-			initialData: function(eventFactory) {
+			initialData: ['eventFactory', function(eventFactory) {
 				return eventFactory.getAll();
-			}
+			}]
 		}
 	});
 
 	$stateProvider.state('create', {
 		url: '/create',
-		templateUrl: 'app/views/create.html',
+		templateUrl: 'views/create.html',
 		controller: 'NewEventController',
 		controllerAs: 'newEventCtrl',
 		resolve: {
@@ -29,14 +29,14 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 
 	$stateProvider.state('loginn', {
 		url: '/login',
-		templateUrl: 'app/views/login.html',
+		templateUrl: 'views/login.html',
 		controller: 'loginController',
 		controllerAs: 'loginCtrl'
 	});
 
 	$stateProvider.state('signup', {
 		url: '/signup',
-		templateUrl: 'app/views/signup.html',
+		templateUrl: 'views/signup.html',
 		controller: 'signupController',
 		controllerAs: 'signCtrl'
 	});
@@ -92,13 +92,62 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 	return authFactory;
 }])
 
+.factory('addressService', function() {
+	return {
+		autocomplete: null,
+		initAutocomplete: function(elementId) {
+			this.autocomplete = new google.maps.places.Autocomplete(
+				document.getElementById(elementId),
+				{types: ['geocode']}
+			);
+		},
+		getLocation: function() {
+			var _this = this;
+			if(navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function(position) {
+					var geolocation = {
+						lat: position.coords.latitude,
+						lng: position.coords.longitude
+					};
+					var circle = new google.maps.Circle({
+						center: geolocation,
+						radius: position.coords.accuracy
+					});
+					_this.autocomplete.setBounds(circle.getBounds());
+				});
+			}
+		}
+	};
+})
+
+//.directive('focusElement', [
+//	function() {
+//		function ff(scope, element) {
+//			element.focus();
+//		}
+//		return {
+//			restrict: 'A',
+//			link: ff
+//		};
+//	}
+//])
+
+.directive('focusElement', function() {
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {
+				element.focus();
+			}
+	};
+})
+
 .controller('NavController', ['$scope', function($scope) {
 	$scope.toggleNb = function() {
 		angular.element(document.querySelector('.navbar-collapse')).removeClass('in');
 	};
 }])
 
-.controller('NewEventController', ['$scope', 'FBMSG', '$state', function($scope, FBMSG, $state) {
+.controller('NewEventController', ['$scope', 'FBMSG', '$state', 'addressService', function($scope, FBMSG, $state, addressService) {
 	//$scope.myData = new Firebase("https://eventplannerapp-098.firebaseio.com/Events");
 	$scope.myData = new Firebase(FBMSG);
 	$scope.addEvent = function() {
@@ -114,8 +163,21 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 		if(!$scope.event || !$scope.event.evend) {
 			return true;
 		}
-		return $scope.event.evstart <= $scope.event.evend;
+		return $scope.event.evstart < $scope.event.evend;
 	};
+
+	var $loc = $('#location');
+	$loc.on('focus', function() {
+		var $input = $(this);
+
+		addressService.initAutocomplete($input.attr('id'));
+		addressService.getLocation();
+
+		addressService.autocomplete.addListener('place_changed', function() {
+			$scope.event.location = $loc.val();
+		});
+	});
+
 }])
 
 .controller('EventListController', ['eventFactory', 'authFactory', '$scope', '$state', 'initialData', function(eventFactory, authFactory, $scope, $state, initialData) {
@@ -217,12 +279,17 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 }])
 
 .run(['$rootScope','$state', function($rootScope, $state) {
-
 	$rootScope.$on('$stateChangeError', function (event, next, previous, error) {
 		console.log(error);
-		if (error = "AUTH_REQUIRED"){
+		if (error = "AUTH_REQUIRED") {
 			console.log("Error in Auth");
 			$state.go('loginn');
 		}
 	});
+	//fired once the view is loaded, trigger input focus
+//	$rootScope.$on('$viewContentLoaded', function () {
+//		var focusEl = $('input, select').filter(':visible:first');
+//		if (focusEl)
+//			focusEl.focus();
+//	});
 }]);

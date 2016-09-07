@@ -2,11 +2,10 @@
 <h2>Sign up to create event</h2>
 <form id="signUp" name="signUpForm" role="form">
 	<!-- <div class="col-sm-6"> -->
-		<div class="form-group" ng-class="{'has-error': signUpForm.name.$touched && signUpForm.name.$invalid, 'has-success': signUpForm.name.$touched && signUpForm.name.$valid}">
+		<div class="form-group" ng-class="{'has-error': signUpForm.name.$touched && signUpForm.name.$invalid, 'has-success': signUpForm.name.$dirty && signUpForm.name.$valid}">
 			<label for="name" class="control-label">Full Name</label>
-			<input id="name" type="text" class="form-control" 
-			name="name" placeholder="Your Full Name" autocomplete="name" autofocus ng-model="signCtrl.userName" ng-minlength="2" required ng-pattern="/^[A-Za-z ]{2,30}$/">
-			<div ng-messages="signUpForm.name.$touched && signUpForm.name.$error" class="err-msg" role="alert">
+			<input autofocus focus-element id="name" type="text" class="form-control" name="name"  placeholder="Your Full Name" aria-label='input full name required' autocomplete="name"  ng-model="signCtrl.userName" ng-minlength="2" required ng-pattern="/^[A-Za-z ]{2,30}$/">
+			<div ng-messages="signUpForm.name.$dirty && signUpForm.name.$error">
                 <div ng-message='required'> Please enter your name</div>
                 <div ng-message='minlength'> The Name entered is too short</div>
                 <div ng-message='pattern'> The name should contain letters only</div>
@@ -16,9 +15,9 @@
 	<div class="col-sm-6"> -->
 		<div class="form-group" ng-class="{'has-error': signUpForm.email.$touched && signUpForm.email.$invalid, 'has-success': signUpForm.email.$touched && signUpForm.email.$valid}">
 			<label class="control-label" for="email">Email Address</label>
-			<input id="email" type="email" class="form-control" name="email" placeholder="your@email.com" ng-model="signCtrl.email" autocomplete="email" required minlength="6" ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/">
+			<input id="email" type="email" class="form-control" name="email" placeholder="your@email.com" aria-label='input email required' ng-model="signCtrl.email" autocomplete="email" required minlength="6" ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/">
 			<div ng-messages="signUpForm.email.$touched && signUpForm.email.$error"> 
-                <div ng-message='required'> Please enter an email</div>
+                <div ng-message='required'> Please enter an email and fill in all requiered fields</div>
                 <div ng-message='email'> The Email entered must be a valid email address</div>
                 <div ng-message='minlength'> The Email entered must be at least 6 characters long</div>
                 <div ng-message="pattern">Must be a valid email</div>
@@ -28,37 +27,37 @@
 	<div class="col-sm-6"> -->
 		<div class="form-group" ng-class="{'has-error': signUpForm.passwd.$touched && signUpForm.passwd.$invalid, 'has-success': signUpForm.passwd.$touched && signUpForm.passwd.$valid }">
 			<label class="control-label" for="password">Password</label>
-			<input id="password" type="password" class="form-control" name="passwd" ng-pattern="/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" autocomplete="off" ng-model="signCtrl.password" required />
+			<input id="password" type="password" class="form-control" name="passwd" aria-label='input password required' ng-pattern="/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" autocomplete="off" ng-model="signCtrl.password" required />
 			<ul>
               <li id="eight-plus" class="valid glyphicon">At least 8 characters long.</li>
               <li id="uppercase" class="valid glyphicon">Contains uppercase and lowercase letters.</li>
               <li id="numbers" class="valid glyphicon">Contains numbers.</li>
             </ul>
 			<div ng-messages="signUpForm.passwd.$touched && signUpForm.passwd.$error">
-                <div ng-message='required'> Please enter the Password</div>
+                <div ng-message='required'> Please create Password and fill in all requiered fields</div>
             </div>
 		</div>
 	<!-- </div> -->
 
 	<div ng-click="collapsed=!collapsed" class="addinfo">
-		<legend>
+		<legend style="color: #311b92">
         	Optional information
     	</legend>
     	<div>
-    		<i ng-class="collapsed?'open':'closed';" class="glyphicon glyphicon-menu-down"></i>
+    		<i ng-class="collapsed?'open':'closed';" class="glyphicon glyphicon-menu-down" style="font-weight: bolder; cursor: pointer; color: #311b92;" title="Additional Information"></i>
     	</div>
     </div>
     <div  ng-show="collapsed">
 	<div class="col-sm-6">
 		<div class="form-group">
 			<label for="company" class="control-label">Company</label>
-			<input id="company" type="text" class="form-control" autocomplete="organization" ng-model="signCtrl.company">
+			<input id="company" type="text" class="form-control" aria-label='input company name optional' autocomplete="organization" ng-model="signCtrl.company">
 		</div>
 	</div>
 	<div class="col-sm-6">
 		<div class="form-group">
 			<label for="number" class="control-label">Mobile Number</label>
-			<input id="number" type="text" class="form-control" name="number" placeholder="(123)456-7890" autocomplete="number" ng-model="signCtrl.number" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
+			<input id="number" type="text" class="form-control" name="number" aria-label='input mobile number optional' placeholder="(123)456-7890" autocomplete="number" ng-model="signCtrl.number" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
 		</div>
 		<div ng-messages="signUpForm.number.$error">
 		<div ng-message="pattern">Must be a valid 10 digit phone number</div>

@@ -28,9 +28,10 @@
 				<div class="event-address">
 					<div>
 					<div class="figure fa fa-map-marker" aria-hidden="true" style="font-size: 18px;"></div> 
-					<div class="address-header">{{event.location}}</div>
+					<div class="address-header">
+						<a ng-href="http://maps.google.com/?q={{event.location}}" target="_blank">{{event.location}}</a>
 					</div>
-					<a style="padding-left: 32px;" ng-href="http://maps.google.com/" target="_blank">Go to Google Maps</a>
+					</div>
 				</div>
 				<div class="event-guests">
 					<div>

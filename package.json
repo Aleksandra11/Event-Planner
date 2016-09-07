@@ -11,9 +11,11 @@
   "devDependencies": {
     "angular-messages": "^1.5.8",
     "browser-sync": "^2.14.0",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
-    "gulp-cssmin": "^0.1.7",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.1",
     "gulp-uglify": "^1.5.3"
