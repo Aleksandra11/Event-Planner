@@ -120,18 +120,6 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 	};
 })
 
-//.directive('focusElement', [
-//	function() {
-//		function ff(scope, element) {
-//			element.focus();
-//		}
-//		return {
-//			restrict: 'A',
-//			link: ff
-//		};
-//	}
-//])
-
 .directive('focusElement', function() {
 	return {
 		restrict: 'A',
@@ -286,10 +274,4 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 			$state.go('loginn');
 		}
 	});
-	//fired once the view is loaded, trigger input focus
-//	$rootScope.$on('$viewContentLoaded', function () {
-//		var focusEl = $('input, select').filter(':visible:first');
-//		if (focusEl)
-//			focusEl.focus();
-//	});
 }]);
