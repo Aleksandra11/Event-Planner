@@ -16,7 +16,7 @@ Future features for additional functionality: in order to allow app users search
 ###Instructions###
 In order to run the application on your local machine check requirements above (requires node, npm, bower, gulp installed ), clone repo, install npm, bower, gulp locally in your application directory, and run gulp to start the server running, go to localhost:3000 in your browser
 
-OR view  Live version of application [here](https://aleksandra11.github.io/Event-Planner/#/)
+OR view  Live version of application [here] (https://aleksandra11.github.io/Event-Planner/#/)
 
 ###Dependencies and Resources###
 
