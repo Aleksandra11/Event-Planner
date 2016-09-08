@@ -17,7 +17,7 @@
 			<label class="control-label" for="email">Email Address</label>
 			<input id="email" type="email" class="form-control" name="email" placeholder="your@email.com" aria-label='input email required' ng-model="signCtrl.email" autocomplete="email" required minlength="6" ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/">
 			<div ng-messages="signUpForm.email.$touched && signUpForm.email.$error"> 
-                <div ng-message='required'> Please enter an email and fill in all requiered fields</div>
+                <div ng-message='required'> Please enter an email and fill out all required fields</div>
                 <div ng-message='email'> The Email entered must be a valid email address</div>
                 <div ng-message='minlength'> The Email entered must be at least 6 characters long</div>
                 <div ng-message="pattern">Must be a valid email</div>
@@ -34,7 +34,7 @@
               <li id="numbers" class="valid glyphicon">Contains numbers.</li>
             </ul>
 			<div ng-messages="signUpForm.passwd.$touched && signUpForm.passwd.$error">
-                <div ng-message='required'> Please create Password and fill in all requiered fields</div>
+                <div ng-message='required'> Please create Password and fill out all required fields</div>
             </div>
 		</div>
 	<!-- </div> -->
