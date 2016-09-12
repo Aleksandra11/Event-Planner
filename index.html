@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="eventApp">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width = device-width, initial-scale = 1">
+	<title>Event Planner App</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Alegreya:400,700italic' rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="app/styles/main.min.css">
+</head>
+<body ng-controller="NavController">
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+  		<div class="container-fluid">
+    	<!-- Brand and toggle-menu get grouped for better mobile display -->
+    		<div class="navbar-header">
+      			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        			<span class="sr-only">Toggle navigation</span>
+        			<span>Menu</span>
+      			</button>
+      			<a class="navbar-brand" href="#"><img src="img/logopinkk.png" alt="Event Planner"></a>
+    		</div>
+
+    		<!-- Content for toggling menu-->
+    		<div class="collapse navbar-collapse" id="navbar">
+      			<ul class="nav navbar-nav">
+        			<li><a ui-sref="main" ng-click="toggleNb()">Events</a></li>
+        			<li><a ui-sref="create"  ng-click="toggleNb()">Create Event</a></li>
+        			<li class="dropdown">
+          				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Share <span class="caret"></span></a>
+          				<ul id="share-dp" class="dropdown-menu" role="menu">
+            				<li>
+            				<div class="row">
+            					<div class="col-md-12">Tell your friends via
+									<div class="social-buttons">
+										<a href="http://facebook.com" class="btn btn-fb" ng-click="toggleNb()"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
+										<a href="http://twitter.com" class="btn btn-tw"  ng-click="toggleNb()"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+									</div>
+								</div>
+							</div>
+            				</li>
+          				</ul>
+        			</li>
+        			<li><a ui-sref="signup"  ng-click="toggleNb()">Sign Up</a></li>
+      			</ul>
+      			<ul class="nav navbar-nav navbar-right">
+        			<li><p class="navbar-text">Already have an account?</p></li>
+					<li><a ui-sref="loginn"  ng-click="toggleNb()">Log In</a></li>
+      			</ul>
+    		</div><!-- /.navbar-collapse -->
+  		</div><!-- /.container-fluid -->
+	</nav>
+	<div ui-view class="container">	
+	</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- AngularJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.5.8/angular-messages.min.js"></script>
+<!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC9t6iaFYPEKF_QxKnNaSRjnHyP5Humu50&libraries=places"></script>
+
+<script src="public/app.min.js"></script>
+
+</body>
+</html>
