@@ -11,7 +11,7 @@ var rename = require('gulp-rename');
 var mincss = require('gulp-cssmin');
 var del = require('del');
 
-gulp.task('default', ['scripts', 'html', 'style', 'browser-sync', 'watch']);
+gulp.task('default', ['scripts', 'html', 'style', 'serve', 'watch']);
 
 gulp.task('scripts', function() {
 	gulp.src(['app/scripts/**/*.js', '!app/scripts/**/*.min.js'])
@@ -21,6 +21,15 @@ gulp.task('scripts', function() {
 	.pipe(gulp.dest('app/scripts'))
 	.pipe(reload({stream:true}));
 });
+
+//gulp.task('script-gh', function() {
+//	gulp.src(['public/**/*.js', '!public/**/*.min.js'])
+//	.pipe(plumber())
+//	.pipe(rename({suffix: '.min'}))
+//	.pipe(uglify())
+//	.pipe(gulp.dest('public'))
+//	.pipe(reload({stream:true}));
+//});
 
 gulp.task('html', function() {
 	gulp.src('app/**/*.html')

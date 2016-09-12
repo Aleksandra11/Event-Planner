@@ -20,8 +20,9 @@
 					<div class="figure fa fa-clock-o" aria-hidden="true"></div>
 					<div class="event-start">
 						<time>
-							<h4>{{event.start | date: "fullDate"}}</h4>
-							<p>{{event.start | date:"h:mm a"}} - {{event.end | date:"h:mm a"}}</p>
+							<h4>{{event.start | date: "EEEE, MMM d, y"}}</h4>
+							<h4>{{event.start | date:"h:mm a"}}</h4>
+							<p style="padding-top: 5px;">End time: {{event.end | date: "EEE, MMM d"}} at {{event.end | date:"h:mm a"}}</p>
 						</time>
 					</div>
 				</div>

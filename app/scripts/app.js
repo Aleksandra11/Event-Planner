@@ -120,18 +120,6 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 	};
 })
 
-//.directive('focusElement', [
-//	function() {
-//		function ff(scope, element) {
-//			element.focus();
-//		}
-//		return {
-//			restrict: 'A',
-//			link: ff
-//		};
-//	}
-//])
-
 .directive('focusElement', function() {
 	return {
 		restrict: 'A',
@@ -166,6 +154,16 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 		return $scope.event.evstart < $scope.event.evend;
 	};
 
+	$scope.futureDate = function(form, value) {
+		var currentDate = new Date();
+		var date = new Date(value);
+		if(currentDate > date) {
+			form.$setValidity('pastEvent', false);//validationErrorKey (camelCase will get converted in dash-case for class name)
+		} else {
+			form.$setValidity('pastEvent', true);
+		}
+	};
+
 	var $loc = $('#location');
 	$loc.on('focus', function() {
 		var $input = $(this);
@@ -188,6 +186,7 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 			return;
 		});
 	};
+
 	//eventFactory.getAll().$loaded(function(data) {
 	//	$scope.events = data;
 	//	console.log($scope.events);
@@ -286,10 +285,4 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 			$state.go('loginn');
 		}
 	});
-	//fired once the view is loaded, trigger input focus
-//	$rootScope.$on('$viewContentLoaded', function () {
-//		var focusEl = $('input, select').filter(':visible:first');
-//		if (focusEl)
-//			focusEl.focus();
-//	});
 }]);
