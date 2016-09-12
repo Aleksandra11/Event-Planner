@@ -286,3 +286,4 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 		}
 	});
 }]);
+
