@@ -3,7 +3,7 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 	$urlRouterProvider.otherwise('/');
 	$stateProvider.state('main', {
 		url: '/',
-		templateUrl: 'views/main.html',
+		templateUrl: 'app/views/main.html',
 		controller: 'EventListController',
 		controllerAs: 'eventsCtrl',
 		resolve: {
@@ -15,7 +15,7 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 
 	$stateProvider.state('create', {
 		url: '/create',
-		templateUrl: 'views/create.html',
+		templateUrl: 'app/views/create.html',
 		controller: 'NewEventController',
 		controllerAs: 'newEventCtrl',
 		resolve: {
@@ -29,14 +29,14 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 
 	$stateProvider.state('loginn', {
 		url: '/login',
-		templateUrl: 'views/login.html',
+		templateUrl: 'app/views/login.html',
 		controller: 'loginController',
 		controllerAs: 'loginCtrl'
 	});
 
 	$stateProvider.state('signup', {
 		url: '/signup',
-		templateUrl: 'views/signup.html',
+		templateUrl: 'app/views/signup.html',
 		controller: 'signupController',
 		controllerAs: 'signCtrl'
 	});
