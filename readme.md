@@ -18,7 +18,8 @@ In order to run the application on your local machine check requirements above (
 
 Run ``` gulp build ``` and then ```gulp serve:dist ``` to start the server running, go to localhost:3000 in your browser
 
-OR view  Live version of application here
+OR view  Live version of application at http://Aleksandra11.github.io/Event-Planner
+
 
 ###Dependencies and Resources###
 
