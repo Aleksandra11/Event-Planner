@@ -270,7 +270,7 @@ angular.module('eventApp', ['ui.router', 'firebase', 'ngMessages'])
 		result.then(function(userData) {
 			console.log("User successfully created with uid: ", userData.uid);
 			console.log(userData);
-			$state.go('loginn');
+			$state.go('main');
 		}, function(error) {
 			console.log("Error creating user: ", error);
 		});
