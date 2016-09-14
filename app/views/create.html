@@ -5,22 +5,22 @@
 	<h1>Create EVENT</h1>
 	
 	<!--  Live Preview -->
-    <div class="form-group" ng-class="{'has-error': eventForm.event.$invalid && !eventForm.event.$pristine, 'has-success': !eventForm.event.$invalid}">
+    <div class="form-group" ng-class="{'has-error': eventForm.event.$invalid && eventForm.event.$touched, 'has-success': !eventForm.event.$invalid}">
         <label for="event" class="col-sm-3 control-label">Event Title 
         </label>
         <div class="col-sm-9">
             <input id="event" class="form-control" name="event" type="text" aria-label="input required The Title for event" placeholder="Your event's title" focus-element autofocus ng-model="event.title" required>
 
-            <span class="help-block" ng-show="eventForm.event.$error.required && !eventForm.event.$pristine">Please enter name or title for the event</span>
+            <span class="help-block" ng-show="eventForm.event.$error.required && eventForm.event.$touched">Please enter name or title for the event</span>
         </div>
     </div>
 
-    <div class="form-group" ng-class="{'has-error': eventForm.type.$invalid && !eventForm.type.$pristine, 'has-success': !eventForm.type.$invalid}">
+    <div class="form-group" ng-class="{'has-error': eventForm.type.$invalid && eventForm.type.$touched, 'has-success': !eventForm.type.$invalid}">
         <label for="type" class="col-sm-3 control-label">Event TYPE 
         </label>
         <div class="col-sm-9">
             <input id="type" name="type" list="types" class="form-control" aria-label="input required Type of event" ng-model="event.type" placeholder="Select One"required>
-            <span class="help-block" ng-show="eventForm.type.$error.required && !eventForm.type.$pristine">Please enter Event type</span>
+            <span class="help-block" ng-show="eventForm.type.$error.required && eventForm.type.$touched">Please enter Event type</span>
         </div>
     </div>
     <datalist id="types">
@@ -39,51 +39,51 @@
         <option value="Ceremony"></option>
     </datalist>
 
-    <div class="form-group" ng-class="{'has-error': eventForm.host.$invalid && !eventForm.host.$pristine, 'has-success': !eventForm.host.$invalid}">
+    <div class="form-group" ng-class="{'has-error': eventForm.host.$invalid && eventForm.host.$touched, 'has-success': !eventForm.host.$invalid}">
         <label for="host" class="col-sm-3 control-label">Event Host Name 
         </label>
         <div class="col-sm-9">
             <input id="host" name="host" type="text" aria-label="input required Event Host name" placeholder="Your name or your company's name" class="form-control" autocomplete="name" ng-model="event.host" required>
-            <span class="help-block" ng-show="eventForm.host.$error.required && !eventForm.host.$pristine">Please enter Host name</span>
+            <span class="help-block" ng-show="eventForm.host.$error.required && eventForm.host.$touched">Please enter Host name</span>
         </div>
     </div>
 
-    <div class="form-group" ng-class="{'has-error': eventForm.location.$invalid && !eventForm.location.$pristine, 'has-success': !eventForm.location.$invalid}">
+    <div class="form-group" ng-class="{'has-error': eventForm.location.$invalid && eventForm.location.$touched, 'has-success': !eventForm.location.$invalid}">
         <label for="location" class="col-sm-3 control-label">Where 
         </label>
         <div class="col-sm-9">
             <input id="location" name="location" type="text" class="form-control" aria-label="input required the location of the event" placeholder="Location" ng-model="event.location" required>
-            <span class="help-block" ng-show="eventForm.location.$error.required && !eventForm.location.$pristine">Please enter location for event</span>
+            <span class="help-block" ng-show="eventForm.location.$error.required && eventForm.location.$touched">Please enter location for event</span>
         </div>
     </div>
 
-    <div class="form-group" ng-class="{'has-error': eventForm.start.$invalid && !eventForm.start.$pristine, 'has-success': !eventForm.start.$invalid}">
+    <div class="form-group" ng-class="{'has-error': eventForm.start.$invalid && eventForm.start.$touched, 'has-success': !eventForm.start.$invalid}">
         <label for="start" class="col-sm-3 control-label">When (start) 
         </label>
         <div class="col-sm-9">
             <input id="start" name="start" type="datetime-local" class="form-control" aria-label="input required Event start date and time" placeholder="Enter date and time" ng-model="event.evstart" ng-keyup="futureDate(eventForm.start, event.evstart)" required>
-            <span class="help-block" ng-show="eventForm.start.$error.required && !eventForm.start.$pristine">Please enter the event date and time</span>
+            <span class="help-block" ng-show="eventForm.start.$error.required && eventForm.start.$touched">Please enter the event date and time</span>
             <span class="help-block" ng-show="eventForm.start.$error.pastEvent">Event can not start/end in past</span>
         </div>
     </div>
 
-    <div class="form-group" ng-class="{'has-error': (eventForm.end.$invalid ||!validTime()) && !eventForm.end.$pristine, 'has-success': !eventForm.end.$invalid && validTime()}">
+    <div class="form-group" ng-class="{'has-error': (eventForm.end.$invalid ||!validTime()) && eventForm.end.$touched, 'has-success': !eventForm.end.$invalid && validTime()}">
         <label for="end" class="col-sm-3 control-label">When (end) 
         </label>
         <div class="col-sm-9">
             <input id="end" name="end" type="datetime-local" class="form-control" aria-label="input required Event end date and time" placeholder="Enter date and time" ng-model="event.evend" ng-keyup="futureDate(eventForm.end, event.evend)"  required>
-            <span class="help-block" ng-show="eventForm.end.$error.required && !eventForm.end.$pristine">Please enter the end time</span>
+            <span class="help-block" ng-show="eventForm.end.$error.required && eventForm.end.$touched">Please enter the end time</span>
             <span class="help-block" ng-show="!validTime()">Event end time should be later than start time!</span>
             <span class="help-block" ng-show="eventForm.end.$error.pastEvent">Event can not end in past</span>
         </div>
     </div>
 
-    <div class="form-group" ng-class="{'has-error': eventForm.guest.$invalid && !eventForm.guest.$pristine, 'has-success': !eventForm.guest.$invalid}">
+    <div class="form-group" ng-class="{'has-error': eventForm.guest.$invalid && eventForm.guest.$touched, 'has-success': !eventForm.guest.$invalid}">
         <label for="guest" class="col-sm-3 control-label">Guest List 
         </label>
         <div class="col-sm-9">
             <textarea id="guest" name="guest" type="textarea" class="form-control" ng-model="event.guest" aria-label="input required guest list" placeholder="Type in your guest list" required></textarea>
-            <span class="help-block" ng-show="eventForm.guest.$error.required && !eventForm.guest.$pristine">Who's envited?</span>
+            <span class="help-block" ng-show="eventForm.guest.$error.required && eventForm.guest.$touched">Who's envited?</span>
         </div>
     </div>
 
@@ -91,10 +91,9 @@
         <label for="contact" class="col-sm-4 control-label">Contact email - Optional
         </label>
         <div class="col-sm-8">
-            <input id="contact" name="contact" type="email" class="form-control" ng-model="event.contact" aria-label="opional input contact email" placeholder="Type in your contact email" autocomplete="email" minlength="6" ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/">
+            <input id="contact" name="contact" type="email" class="form-control" ng-model="event.contact" aria-label="opional input contact email" placeholder="Type in your contact email" autocomplete="email" ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/">
 			<div ng-messages="eventForm.contact.$error"> 
                 <div ng-message='email'> The Email entered must be a valid email address</div>
-                <div ng-message='minlength'> The Email entered must be at least 6 characters long</div>
                 <div ng-message="pattern">Must be a valid email</div>
             </div>
         </div>
